@@ -9,13 +9,13 @@ PHP 数字转为汉字描述，人民币大写方法。
 在 `composer.json` 文件中添加
 
 ```json
-"wilon/php-number2chineses": "^0.1.0"
+"wilon/php-number2chinese": "^0.1.0"
 ```
 
 或者
 
 ```sh
-composer require wilon/php-number2chineses
+composer require wilon/php-number2chinese
 ```
 
 ### 使用方法
