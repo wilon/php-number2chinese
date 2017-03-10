@@ -1,0 +1,27 @@
+{
+    "name": "wilon/php-number2chinese",
+    "description": "PHP数字转为汉字描述、人民币大写方法。",
+    "license": "MIT",
+    "homepage": "https://wilon.github.io",
+    "support": {
+        "issues": "https://github.com/wilon/php-number2chinese/issues",
+        "source": "https://github.com/wilon/php-number2chinese"
+    },
+    "keywords": ["php", "number", "chinese"],
+    "authors": [
+        {
+            "name": "Weilong Wang",
+            "email": "wilonx@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "files": ["src/number2chinese.php"]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
