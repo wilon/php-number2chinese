@@ -20,7 +20,7 @@ composer require wilon/php-number2chineses
 
 ### 使用方法
 
-> *string number2chinese ( mixed $number [, bollen $isRmb] )*
+> #string number2chinese ( mixed $number [, bollen $isRmb] )#
 
 *将$number转为汉字念法*
 
@@ -59,7 +59,7 @@ echo number2chinese($num2, true);    // 壹拾贰亿叁仟肆佰伍拾陆万柒�
 ```php
 $num1 = 0.1234567890;
 echo number2chinese(number_format($num1, 2));    // 零点一二
-echo number2chinese(number_format($num1, 2), true);    // 零元壹角贰分叁厘肆毫
+echo number2chinese(number_format($num1, 2), true);    // 零元壹角贰分
 ```
 
 ______
