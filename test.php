@@ -5,7 +5,7 @@ require __DIR__ . '/number2chinese.php';
 
 
 
-$num1 = 0.1234567890;
+$num1 = 10101001001;
 echo number2chinese($num1), '<br>';    // 零点一二三四五六七八九
 echo number2chinese($num1, true), '<br>';    // 零元壹角贰分叁厘肆毫
 // 若想精确小数点后两位，请先处理$num1
