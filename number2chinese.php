@@ -44,7 +44,8 @@ if (! function_exists('number2chinese')) {
                 $cnZero = $i > 1 && $n !== '0' && $integer[$i - 1] === '0' ? '零' : '';
                 $cnNum  = $numArr[$n];
                 $cnDesc = ($n == '0' && $j % 4 != 0) || substr($integer, $i - 3, 4) === '0000' ? '' : $descArr[$j];
-                if ($i == 0 && $cnDesc == '十') $cnNum = '';
+                if ($i == 0 && $cnNum == '一' && $cnDesc == '十') $cnNum = '';
+
                 $integerRes .=  $cnZero . $cnNum . $cnDesc;
             }
         }
