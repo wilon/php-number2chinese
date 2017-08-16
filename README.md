@@ -1,5 +1,14 @@
 # PHP number2chinese
 
+[![Packagist][badge_package]][link-packagist]
+[![Packagist Release][badge_release]][link-packagist]
+[![Packagist Downloads][badge_downloads]][link-packagist]
+
+[badge_package]:      https://img.shields.io/badge/package-wilon/php--number2chinese-blue.svg?style=flat-square
+[badge_release]:      https://img.shields.io/packagist/v/wilon/php-number2chinese.svg?style=flat-square
+[badge_downloads]:    https://img.shields.io/packagist/dt/wilon/php-number2chinese.svg?style=flat-square
+[link-packagist]:     https://packagist.org/packages/wilon/php-number2chinese
+
 PHP 数字转为汉字描述，人民币大写方法。
 
 ### 安装
