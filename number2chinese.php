@@ -66,7 +66,7 @@ if (! function_exists('number2chinese')) {
                 $n = $decimal[$i];
                 $cnZero = $n === '0' ? '零' : '';
                 $cnNum  = $numArr[$n];
-                $cnDesc = $rmbDescArr[$i];
+                $cnDesc = $isRmb ? $rmbDescArr[$i] : '';
                 $decimalRes .=  $cnZero . $cnNum . $cnDesc;
             }
         }
