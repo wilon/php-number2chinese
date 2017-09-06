@@ -19,8 +19,10 @@ if (! function_exists('number2chinese')) {
         if (!preg_match('/^(\d+)?$/', $integer . $decimal)) {
             throw new Exception('number2chinese() wrong number', 1);
         }
+        if (preg_match('/^\d+$/', $number)) {
+            $decimal = null;
+        }
         $integer = ltrim($integer, '0');
-        $decimal = rtrim($decimal, '0');
         // 准备参数
         $numArr  = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '.' => '点'];
         $descArr = ['', '十', '百', '千', '万', '十', '百', '千', '亿', '十', '百', '千', '万亿', '十', '百', '千', '兆', '十', '百', '千'];
@@ -52,24 +54,26 @@ if (! function_exists('number2chinese')) {
         // 小数部分拼接
         $decimalRes = '';
         $count = strlen($decimal);
-        if ($count > max(array_keys($descArr))) {
-            throw new Exception('number2chinese() number too large.', 1);
-        } else if ($count == 0) {
+        if ($decimal === null) {
+            $decimalRes = $isRmb ? '整' : '';
+        } else if ($decimal === '0') {
             $decimalRes = '零';
+        } else if ($count > max(array_keys($descArr))) {
+            throw new Exception('number2chinese() number too large.', 1);
         } else {
             for ($i = 0; $i < $count; $i++) {
                 if ($isRmb && $i > count($rmbDescArr) - 1) break;
                 $n = $decimal[$i];
-                $cnZero = !$isRmb && $n === '0' ? '零' : '';
+                $cnZero = $n === '0' ? '零' : '';
                 $cnNum  = $numArr[$n];
-                $cnDesc = $isRmb && $n !== '0' ? $rmbDescArr[$i] : '';
+                $cnDesc = $rmbDescArr[$i];
                 $decimalRes .=  $cnZero . $cnNum . $cnDesc;
             }
         }
         // 拼接结果
         $res = $isRmb ?
             $integerRes . ($decimalRes === '零' ? '元整' : "元$decimalRes"):
-            $integerRes . ($decimalRes === '零' ? '' : "点$decimalRes");
+            $integerRes . ($decimalRes ==='' ? '' : "点$decimalRes");
         return $res;
     }
 }

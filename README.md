@@ -18,7 +18,7 @@ PHP 数字转为汉字描述，人民币大写方法。
 在 `composer.json` 文件中添加
 
 ```json
-"wilon/php-number2chinese": "^0.2.0"
+"wilon/php-number2chinese": "~1.0"
 ```
 
 或者
@@ -50,8 +50,8 @@ $num1 = 0.1234567890;
 echo number2chinese($num1);    // 零点一二三四五六七八九
 echo number2chinese($num1, true);    // 零元壹角贰分叁厘肆毫
 $num2 = 20000000000000000;
-echo number2chinese($num2);    // 二万亿
-echo number2chinese($num2, true);    // 贰万亿元整
+echo number2chinese($num2);    // 二兆
+echo number2chinese($num2, true);    // 贰兆元整
 ```
 
 当数字过大时，请输入string
@@ -69,6 +69,13 @@ echo number2chinese($num2, true);    // 壹拾贰亿叁仟肆佰伍拾陆万柒�
 $num1 = 0.1234567890;
 echo number2chinese(number_format($num1, 2));    // 零点一二
 echo number2chinese(number_format($num1, 2), true);    // 零元壹角贰分
+```
+
+### 测试
+
+```
+php vendor/wilon/php-number2chinese/test.php    // 随机一些数据进行测试
+php vendor/wilon/php-number2chinese/test.php 2000   // 指定数字
 ```
 
 ______
