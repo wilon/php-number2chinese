@@ -18,7 +18,7 @@
         "php": ">=5.4"
     },
     "autoload": {
-        "files": ["src/number2chinese.php"]
+        "files": ["number2chinese.php"]
     },
     "config": {
         "sort-packages": true

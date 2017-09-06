@@ -5,6 +5,12 @@ require __DIR__ . '/number2chinese.php';
 
 $br = PHP_SAPI == 'cli' ? "\r\n" : '<br>';
 
+if ($num = $argv[1]) {
+    echo ($num), ' -> ', number2chinese($num), $br;
+    echo ($num), ' -> ', number2chinese($num, true), $br;
+    die;
+}
+
 $num = '';
 for ($i = 0; $i < 10; $i++) {
     $num = randNum($i) ?: 0;
