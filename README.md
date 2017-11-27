@@ -1,5 +1,6 @@
 # PHP number2chinese
 
+[![Build Status](https://travis-ci.org/wilon/php-number2chinese.svg?branch=master)](https://travis-ci.org/wilon/php-number2chinese)
 [![Packagist][badge_package]][link-packagist]
 [![Packagist Release][badge_release]][link-packagist]
 [![Packagist Downloads][badge_downloads]][link-packagist]
@@ -10,6 +11,8 @@
 [link-packagist]:     https://packagist.org/packages/wilon/php-number2chinese
 
 PHP 数字转为汉字描述，人民币大写方法。
+
+![image](https://user-images.githubusercontent.com/7512755/33249522-0c0dbc8e-d366-11e7-873d-c909a8847a86.png)
 
 ### 安装
 

@@ -1,0 +1,27 @@
+language: php
+
+cache:
+    directories:
+        - vendor
+        - $HOME/.composer/cache
+
+php:
+  - 5.4
+  - 5.6
+  - 7.0
+  - 7.1
+
+sudo: false
+
+install:
+  - travis_retry composer install --no-interaction
+
+script:
+  - php test.php
+
+notifications:
+  email:
+    recipients:
+      - wilonx@163.com
+    on_success: never
+    on_failure: never
