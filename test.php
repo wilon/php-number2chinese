@@ -1,11 +1,11 @@
 <?php
 
-error_reporting(E_ERROR);
+error_reporting(E_ALL);
 require __DIR__ . '/number2chinese.php';
 
 $br = PHP_SAPI == 'cli' ? "\r\n" : '<br>';
 
-if ($num = $argv[1]) {
+if (array_key_exists(1, $argv) && $num = $argv[1]) {
     echo ($num), ' -> ', number2chinese($num), $br;
     echo ($num), ' -> ', number2chinese($num, true), $br;
     die;
