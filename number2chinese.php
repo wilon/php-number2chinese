@@ -38,6 +38,12 @@ if (! function_exists('number2chinese')) {
     {
         // 判断正确数字
         list($integer, $decimal) = explode('.', $number . '.0');
+        // 检测是否为负数
+        $symbol = '';
+        if (substr($integer, 0, 1) == '-') {
+            $symbol = '负';
+            $integer = substr($integer, 1);
+        } 
         if (!preg_match('/^(\d+)?$/', $integer . $decimal)) {
             throw new Exception('number2chinese() wrong number', 1);
         }
@@ -108,9 +114,9 @@ if (! function_exists('number2chinese')) {
             }
         }
         // 拼接结果
-        $res = $isRmb ?
+        $res = $symbol . ($isRmb ?
             $integerRes . ($decimalRes === '零' ? '元整' : "元$decimalRes"):
-            $integerRes . ($decimalRes ==='' ? '' : "点$decimalRes");
+            $integerRes . ($decimalRes ==='' ? '' : "点$decimalRes"));
         return $res;
     }
 }
