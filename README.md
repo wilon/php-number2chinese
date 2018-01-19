@@ -48,6 +48,7 @@ composer require wilon/php-number2chinese
 
     输入数字或字符串。
     当数字过大或过小时，请输入string
+    支持负数
 
 * bollen $isRmb
 
@@ -63,6 +64,9 @@ echo number2chinese($num1, true);    // 零元壹角贰分叁厘肆毫
 $num2 = 20000000000000000;
 echo number2chinese($num2);    // 两兆
 echo number2chinese($num2, true);    // 贰兆元整
+$num3 = -1202030;
+echo number2chinese($num3);    // 负一百二十万零两千零三十
+echo number2chinese($num3, true);    // 负壹佰贰拾万零贰仟零叁拾元整
 ```
 
 当数字过大时，请输入string
