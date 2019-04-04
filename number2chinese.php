@@ -30,6 +30,8 @@ if (! function_exists('number2chinese')) {
      *
      * 参考：https://jingyan.baidu.com/article/636f38bb3cfc88d6b946104b.html
      *
+     * 人民币写法参考：[正确填写票据和结算凭证的基本规定](http://bbs.chinaacc.com/forum-2-35/topic-1181907.html)
+     *
      * @param  minx  $number
      * @param  boolean $isRmb
      * @return string
@@ -102,23 +104,36 @@ if (! function_exists('number2chinese')) {
         if ($decimal === null) {
             $decimalRes = $isRmb ? '整' : '';
         } else if ($decimal === '0') {
-            $decimalRes = '零';
+            $decimalRes = '';
         } else if ($count > max(array_keys($descArr))) {
             throw new Exception('number2chinese() number too large.', 1);
         } else {
             for ($i = 0; $i < $count; $i++) {
                 if ($isRmb && $i > count($rmbDescArr) - 1) break;
                 $n = $decimal[$i];
-                $cnZero = $n === '0' ? '零' : '';
-                $cnNum  = $numArr[$n];
-                $cnDesc = $isRmb ? $rmbDescArr[$i] : '';
-                $decimalRes .=  $cnZero . $cnNum . $cnDesc;
+                if (!$isRmb) {
+                    $cnZero = $n === '0' ? '零' : '';
+                    $cnNum  = $numArr[$n];
+                    $cnDesc = '';
+                    $decimalRes .=  $cnZero . $cnNum . $cnDesc;
+                } else {
+                    // 零零的读法
+                    $isLing = $i > 0                        // 去除首位
+                        && $n !== '0'                       // 本位数字不是零
+                        && $decimal[$i - 1] === '0';        // 上一位是零
+                    $cnZero = $isLing ? '零' : '';
+                    $cnNum  = $numArr[$n];
+                    $cnDesc = $cnNum ? $rmbDescArr[$i] : '';
+                    $decimalRes .=  $cnZero . $cnNum . $cnDesc;
+                }
             }
         }
         // 拼接结果
-        $res = $symbol . ($isRmb ?
-            $integerRes . ($decimalRes === '零' ? '元整' : "元$decimalRes"):
-            $integerRes . ($decimalRes ==='' ? '' : "点$decimalRes"));
+        $res = $symbol . (
+            $isRmb
+            ? $integerRes . ($decimalRes === '' ? '元整' : "元$decimalRes")
+            : $integerRes . ($decimalRes ==='' ? '' : "点$decimalRes")
+        );
         return $res;
     }
 }

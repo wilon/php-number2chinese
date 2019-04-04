@@ -1,6 +1,7 @@
 # PHP number2chinese
 
-[![Build Status](https://travis-ci.org/wilon/php-number2chinese.svg?branch=master)](https://travis-ci.org/wilon/php-number2chinese)
+点击校验👉👉👉[![Build Status](https://travis-ci.org/wilon/php-number2chinese.svg?branch=master)](https://travis-ci.org/wilon/php-number2chinese)
+
 [![Packagist][badge_package]][link-packagist]
 [![Packagist Release][badge_release]][link-packagist]
 [![Packagist Downloads][badge_downloads]][link-packagist]
@@ -21,6 +22,8 @@ PHP 数字转为汉字描述，人民币大写方法。
  * 关于「零」和「〇」的问题，数字中一律用「零」，只有页码、年代等编号中数的空位才能用「〇」。数位中间无论多少个0，都读成一个「零」。2014是「两千零一十四」，200014是「二十万零一十四」，201400是「二十万零一千四百」
  
  * 参考：https://jingyan.baidu.com/article/636f38bb3cfc88d6b946104b.html
+
+ * 人民币写法参考：[正确填写票据和结算凭证的基本规定](http://bbs.chinaacc.com/forum-2-35/topic-1181907.html)
 
 ### 安装
 
@@ -73,7 +76,7 @@ echo number2chinese($num3, true);    // 负壹佰贰拾万零贰仟零叁拾元�
 ```php
 $num2 = 1234567890.0123456789;
 echo number2chinese($num2);    // 十二亿三千四百五十六万七千八百九十点零一二三
-echo number2chinese($num2, true);    // 壹拾贰亿叁仟肆佰伍拾陆万柒仟捌佰玖拾元壹分贰厘叁毫
+echo number2chinese($num2, true);    // 壹拾贰亿叁仟肆佰伍拾陆万柒仟捌佰玖拾元零壹分贰厘叁毫
 $num2 = '1234567890.0123456789';
 echo number2chinese($num2);    // 十二亿三千四百五十六万七千八百九十点零一二三四五六七八九
 echo number2chinese($num2, true);    // 壹拾贰亿叁仟肆佰伍拾陆万柒仟捌佰玖拾元壹分贰厘叁毫
