@@ -104,7 +104,7 @@ if (! function_exists('number2chinese')) {
         if ($decimal === null) {
             $decimalRes = $isRmb ? '整' : '';
         } else if ($decimal === '0') {
-            $decimalRes = '';
+            $decimalRes = $isRmb ? '' : '零';
         } else if ($count > max(array_keys($descArr))) {
             throw new Exception('number2chinese() number too large.', 1);
         } else {
