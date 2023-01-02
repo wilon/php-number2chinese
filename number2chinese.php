@@ -32,7 +32,7 @@ if (! function_exists('number2chinese')) {
      *
      * 人民币写法参考：[正确填写票据和结算凭证的基本规定](http://bbs.chinaacc.com/forum-2-35/topic-1181907.html)
      *
-     * @param  minx  $number
+     * @param  mixed  $number
      * @param  boolean $isRmb
      * @return string
      */
