@@ -100,7 +100,7 @@ if (! function_exists('number2chinese')) {
 
         // 小数部分拼接
         $decimalRes = '';
-        $count = strlen($decimal);
+        $count = strlen($decimal ?? '');
         if ($decimal === null) {
             $decimalRes = $isRmb ? '整' : '';
         } else if ($decimal === '0') {
